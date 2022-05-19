@@ -7,7 +7,9 @@
       crossorigin="anonymous"
     />
     <div class="container m-auto">
-      <data-table v-bind="parametersTable1" @actionTriggered="handleAction" />
+      <div class="card card-body">
+        <data-table v-bind="parametersTable1" @actionTriggered="handleAction" />
+      </div>
     </div>
   </div>
 </template>
@@ -32,8 +34,10 @@ export default {
     parametersTable1() {
       return {
         data: this.users,
-        actionMode: "multiple",
-        columnKeys: ["surname", "email", "phone", "action"],
+        tableClass: "table table-sm",
+        actionMode: "single",
+        actions: ["view", "edit", "delete"],
+        columnKeys: ["surname", "email", "phone"],
       };
     },
   },
